@@ -14,7 +14,7 @@ class AlbunsViewModel {
         repository = AlbunsRepository()
     }
 
-    func getAlbuns(completion: @escaping (MyError?)-> ()){
+    func searchForAlbuns(completion: @escaping (MyError?)-> ()){
         repository.getAlbuns(){ result in
             switch result{
 
@@ -26,5 +26,9 @@ class AlbunsViewModel {
                 completion(error)
             }
         }
+    }
+
+    func getAlbum(withOrder: Int) -> Album{
+        return self.albuns[withOrder]
     }
 }

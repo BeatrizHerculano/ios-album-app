@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        albunsViewModel.getAlbuns(){error in
+        albunsViewModel.searchForAlbuns(){ error in
             guard let error = error else {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -41,7 +41,7 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celula = tableView.dequeueReusableCell(withIdentifier: "minha celula", for: indexPath) as! MyTableCell
-        celula.setValues(album: self.albunsViewModel.albuns[indexPath.row])
+        celula.setValues(album: self.albunsViewModel.getAlbum(withOrder: indexPath.row))
 
         return celula
     }
