@@ -11,30 +11,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var array: [Album] = []
+    var albunsViewModel = AlbunsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        tableView.register(MyTableCell.self, forCellReuseIdentifier: "minha celula")
-
-        let repository = AlbunsRepository()
-        repository.getAlbuns(){ result in
-            switch result{
-
-            case .success(let albuns):
-                self.array = albuns.album
+        albunsViewModel.getAlbuns(){error in
+            guard let error = error else {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            case .failure(let error):
-                print(error)
+                return
             }
-
+            print(error)
         }
-        print(array)
     }
-
 
 }
 
@@ -46,12 +36,12 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.array.count
+        return self.albunsViewModel.albuns.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celula = tableView.dequeueReusableCell(withIdentifier: "minha celula", for: indexPath) as! MyTableCell
-        celula.setValues(album: array[indexPath.row])
+        celula.setValues(album: self.albunsViewModel.albuns[indexPath.row])
 
         return celula
     }
