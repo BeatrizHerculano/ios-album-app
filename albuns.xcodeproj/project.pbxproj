@@ -62,11 +62,10 @@
 		44DC0E5825DC823C00E36CCC /* albuns */ = {
 			isa = PBXGroup;
 			children = (
-				44DC0E5925DC823C00E36CCC /* AppDelegate.swift */,
-				44DC0E5B25DC823C00E36CCC /* SceneDelegate.swift */,
-				44DC0E5D25DC823C00E36CCC /* ViewController.swift */,
-				44F57F1E25F2525B005ABC0E /* AlbunsRepository.swift */,
-				44F57F1B25F24C6F005ABC0E /* Album.swift */,
+				44F57F2225F52E08005ABC0E /* Commons */,
+				44F57F2325F52E26005ABC0E /* Controllers */,
+				44F57F2425F52E38005ABC0E /* Repositories */,
+				44F57F2125F52DC7005ABC0E /* Models */,
 				44F57F1725F04437005ABC0E /* Anotations.swift */,
 				44DC0E5F25DC823C00E36CCC /* Main.storyboard */,
 				44DC0E6225DC823D00E36CCC /* Assets.xcassets */,
@@ -74,6 +73,39 @@
 				44DC0E6725DC823D00E36CCC /* Info.plist */,
 			);
 			path = albuns;
+			sourceTree = "<group>";
+		};
+		44F57F2125F52DC7005ABC0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				44F57F1B25F24C6F005ABC0E /* Album.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		44F57F2225F52E08005ABC0E /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				44DC0E5925DC823C00E36CCC /* AppDelegate.swift */,
+				44DC0E5B25DC823C00E36CCC /* SceneDelegate.swift */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
+		44F57F2325F52E26005ABC0E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44DC0E5D25DC823C00E36CCC /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		44F57F2425F52E38005ABC0E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				44F57F1E25F2525B005ABC0E /* AlbunsRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
